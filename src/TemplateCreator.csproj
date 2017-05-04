@@ -73,6 +73,9 @@
     </Content>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <Content Include="Resources\template-icon.png">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\vs-2017.3.host.json">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

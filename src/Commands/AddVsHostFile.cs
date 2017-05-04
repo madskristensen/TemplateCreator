@@ -55,7 +55,7 @@ namespace TemplateCreator
             System.Threading.Tasks.Task.Run(() =>
             {
                 AddCliHostFile.CopyFile(_folder, Constants.VsHostFileName, true);
-                AddCliHostFile.CopyFile(_folder, "icon.png", false);
+                AddCliHostFile.CopyFile(_folder, "template-icon.png", false);
             });
         }
     }

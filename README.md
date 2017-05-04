@@ -2,8 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/p5ou4mbj7248lqho?svg=true)](https://ci.appveyor.com/project/madskristensen/templatecreator)
 
-<!-- Update the VS Gallery link after you upload the VSIX-->
-Download this extension from the [VS Gallery](https://visualstudiogallery.msdn.microsoft.com/[GuidFromGallery])
+Download this extension from the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.TemplateCreator)
 or get the [CI build](http://vsixgallery.com/extension/49719076-63de-4191-8f25-470f5fb3b6cb/).
 
 ---------------------------------------
@@ -15,6 +14,8 @@ See the [change log](CHANGELOG.md) for changes and road map.
 ## Features
 
 - Generate template file
+- Add Visual Studio host file
+- Add .NET CLI host file
 
 ### Generate template file
 Right-click the project you want to turn into a template and click *Create Template...*.
@@ -22,6 +23,15 @@ Right-click the project you want to turn into a template and click *Create Templ
 ![Context menu project](art/context-menu-project.png)
 
 That will create a folder called *.template.config* and add a file called *template.json* to it. The folder is not being added to the project, but exist on disk in the root of the project directory.
+
+![Solution Explorer](art/solution-explorer.png)
+
+## Add Visual Studio/.NET CLI host files
+To have the template show up in the ASP.NET project dialog, you need to add a Visual Studio specific host file to the *.template.config* folder.
+
+![Add host files](art/add-host-files.png)
+
+To control the CLI experience using *dotnet new* you need a .NET CLI specific host file.
 
 ## Contribute
 Check out the [contribution guidelines](.github/CONTRIBUTING.md)

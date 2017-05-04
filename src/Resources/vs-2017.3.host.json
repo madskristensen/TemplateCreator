@@ -6,7 +6,7 @@
     "text": "My description"
   },
   "order": 1000,
-  "icon": "icon.png",
+  "icon": "template-icon.png",
   "learnMoreLink": "url",
   "uiFilters": [ "oneaspnet" ],
   "supportsDocker": true
