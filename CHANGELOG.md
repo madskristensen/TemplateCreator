@@ -1,6 +1,7 @@
 # Road map
 
-- [ ] Nothing yet
+- [ ] Command to add vs-2017.host.json
+- [ ] Command to add DotNetCLI.host.json
 
 Features that have a checkmark are complete and available for
 download in the

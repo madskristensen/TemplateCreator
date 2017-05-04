@@ -4,7 +4,7 @@
     <Identity Id="49719076-63de-4191-8f25-470f5fb3b6cb" Version="0.1" Language="en-US" Publisher="Mads Kristensen" />
     <DisplayName>Template Creator</DisplayName>
     <Description xml:space="preserve">Makes it easy to create templates for 'dotnet new'</Description>
-    <MoreInfo>https://github.com/madskristensen/templatecreator</MoreInfo>
+    <MoreInfo>https://github.com/madskristensen/TemplateCreator</MoreInfo>
     <License>Resources\LICENSE</License>
     <ReleaseNotes>https://github.com/madskristensen/TemplateCreator/blob/master/CHANGELOG.md</ReleaseNotes>
     <Icon>Resources\Icon.png</Icon>
