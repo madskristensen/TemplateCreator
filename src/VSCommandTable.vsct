@@ -7,12 +7,12 @@
 
   <Commands package="guidPackage">
     <Buttons>
-      <Button guid="guidPackageCmdSet" id="AddTemplate" priority="0x0900" type="Button">
-        <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_ADD" />
-        <Icon guid="ImageCatalogGuid" id="DebugTemplate" />
+      <Button guid="guidPackageCmdSet" id="AddTemplate" priority="0x0600" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_BUILD" />
+        <Icon guid="ImageCatalogGuid" id="GenerateAllFromTemplate" />
         <CommandFlag>IconIsMoniker</CommandFlag>
         <Strings>
-          <ButtonText>Create Template</ButtonText>
+          <ButtonText>Create Template...</ButtonText>
         </Strings>
       </Button>
     </Buttons>

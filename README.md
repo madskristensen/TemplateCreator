@@ -14,26 +14,22 @@ See the [change log](CHANGELOG.md) for changes and road map.
 
 ## Features
 
-- Feature 1
-- Feature 2
-  - Sub feature
+- Generate template file
 
-### Feature 1
-Describe feature 1. Add screenshots/code samples etc.
+### Generate template file
+Right-click the project you want to turn into a template and click *Create Template...*.
 
-### Feature 2
-Describe feature 2. Add screenshots/code samples etc.
+![Context menu project](art/context-menu-project.png)
 
-#### Sub feature
-Describe sub feature. Add screenshots/code samples etc.
+That will create a folder called *.template.config* and add a file called *template.json* to it. The folder is not being added to the project, but exist on disk in the root of the project directory.
 
 ## Contribute
-Check out the [contribution guidelines](CONTRIBUTING.md)
+Check out the [contribution guidelines](.github/CONTRIBUTING.md)
 if you want to contribute to this project.
 
 For cloning and building this project yourself, make sure
 to install the
-[Extensibility Tools 2015](https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6)
+[Extensibility Tools](https://visualstudiogallery.msdn.microsoft.com/ab39a092-1343-46e2-b0f1-6a3f91155aa6)
 extension for Visual Studio which enables some features
 used by this project.
 

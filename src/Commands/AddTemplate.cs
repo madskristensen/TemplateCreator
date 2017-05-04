@@ -3,23 +3,24 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using System.IO;
+using EnvDTE;
 
 namespace TemplateCreator
 {
     internal sealed class AddTemplate
     {
         private readonly Package _package;
+        private Project _project;
 
-        private AddTemplate(Package package)
+        private AddTemplate(Package package, OleMenuCommandService commandService)
         {
             _package = package;
 
-            if (ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
-            {
-                var cmdId = new CommandID(PackageGuids.guidPackageCmdSet, PackageIds.AddTemplate);
-                var cmd = new MenuCommand(Execute, cmdId);
-                commandService.AddCommand(cmd);
-            }
+            var cmdId = new CommandID(PackageGuids.guidPackageCmdSet, PackageIds.AddTemplate);
+            var cmd = new OleMenuCommand(Execute, cmdId);
+            cmd.BeforeQueryStatus += BeforeQueryStatus;
+            commandService.AddCommand(cmd);
         }
 
         public static AddTemplate Instance
@@ -32,23 +33,46 @@ namespace TemplateCreator
             get { return _package; }
         }
 
-        public static void Initialize(Package package)
+        public static void Initialize(Package package, OleMenuCommandService commandService)
         {
-            Instance = new AddTemplate(package);
+            Instance = new AddTemplate(package, commandService);
+        }
+
+        private void BeforeQueryStatus(object sender, EventArgs e)
+        {
+            var button = (OleMenuCommand)sender;
+            button.Enabled = button.Visible = false;
+
+            _project = VsHelpers.DTE.SelectedItems.Item(1)?.Project;
+            string root = _project?.GetRootFolder();
+
+            if (string.IsNullOrEmpty(root))
+                return;
+
+            var templateFile = Path.Combine(root, Constants.Folder, Constants.TemplateFileName);
+
+            button.Enabled = button.Visible = !File.Exists(templateFile);
         }
 
         private void Execute(object sender, EventArgs e)
         {
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "AddTemplate";
+            string json = TemplateGenerator.CreateProjectTemplate(_project);
 
-            VsShellUtilities.ShowMessageBox(
-                this.ServiceProvider,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            if (string.IsNullOrEmpty(json))
+            {
+                System.Diagnostics.Debug.Write("Could not generate the template");
+                return;
+            }
+
+            string root = _project.GetRootFolder();
+
+            var templateFile = Path.Combine(root, Constants.Folder, Constants.TemplateFileName);
+            string folder = Path.GetDirectoryName(templateFile);
+
+            Directory.CreateDirectory(folder);
+            File.WriteAllText(templateFile, json);
+
+            VsHelpers.DTE.ItemOperations.OpenFile(templateFile);
         }
     }
 }
