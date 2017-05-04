@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="49719076-63de-4191-8f25-470f5fb3b6cb" Version="0.1" Language="en-US" Publisher="Mads Kristensen" />
+    <Identity Id="49719076-63de-4191-8f25-470f5fb3b6cb" Version="0.5" Language="en-US" Publisher="Mads Kristensen" />
     <DisplayName>Template Creator</DisplayName>
     <Description xml:space="preserve">Makes it easy to create templates for 'dotnet new'</Description>
     <MoreInfo>https://github.com/madskristensen/TemplateCreator</MoreInfo>

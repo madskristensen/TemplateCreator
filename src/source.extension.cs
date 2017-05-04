@@ -11,7 +11,7 @@ namespace TemplateCreator
         public const string Name = "Template Creator";
         public const string Description = @"Makes it easy to create templates for 'dotnet new'";
         public const string Language = "en-US";
-        public const string Version = "0.1";
+        public const string Version = "0.5";
         public const string Author = "Mads Kristensen";
         public const string Tags = "template, dotnet";
     }

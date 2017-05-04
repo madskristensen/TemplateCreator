@@ -22,6 +22,16 @@ namespace TemplateCreator
             return Path.Combine(folder, relativePath);
         }
 
+        public static bool IsTemplateFolder(out ProjectItem templateFolderItem)
+        {
+            templateFolderItem = DTE.SelectedItems.Item(1)?.ProjectItem;
+
+            if (templateFolderItem != null && templateFolderItem.Name.Equals(Constants.Folder))
+                return true;
+
+            return false;
+        }
+
         public static string GetRootFolder(this Project project)
         {
             if (project == null)

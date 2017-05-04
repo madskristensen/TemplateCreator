@@ -1,0 +1,13 @@
+{
+  "name": {
+    "text": "name of template"
+  },
+  "description": {
+    "text": "My description"
+  },
+  "order": 1000,
+  "icon": "icon.png",
+  "learnMoreLink": "url",
+  "uiFilters": [ "oneaspnet" ],
+  "supportsDocker": true
+}

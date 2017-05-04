@@ -1,7 +1,6 @@
 # Road map
 
-- [ ] Command to add vs-2017.host.json
-- [ ] Command to add DotNetCLI.host.json
+- [ ] VSIX project integration
 
 Features that have a checkmark are complete and available for
 download in the
@@ -12,6 +11,8 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
-## 0.1
+## 0.5
 
 - [x] Initial release
+- [x] Command to add vs-2017.host.json
+- [x] Command to add DotNetCLI.host.json

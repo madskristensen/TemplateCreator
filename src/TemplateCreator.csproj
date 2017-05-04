@@ -46,6 +46,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddCliHostFile.cs" />
+    <Compile Include="Commands\AddVsHostFile.cs" />
     <Compile Include="Commands\AddTemplate.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +73,12 @@
     </Content>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <Content Include="Resources\vs-2017.3.host.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Resources\dotnetcli.host.json">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
       <Generator>VsixManifestGenerator</Generator>
