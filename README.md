@@ -7,7 +7,7 @@ or get the [CI build](http://vsixgallery.com/extension/49719076-63de-4191-8f25-4
 
 ---------------------------------------
 
-Makes it easy to create project templates for 'dotnet new' and Visual Studio.
+Makes it easy to create custom project templates for 'dotnet new' and Visual Studio.
 
 See the [change log](CHANGELOG.md) for changes and road map.
 

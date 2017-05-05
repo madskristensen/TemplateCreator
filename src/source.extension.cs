@@ -9,7 +9,7 @@ namespace TemplateCreator
     {
         public const string Id = "49719076-63de-4191-8f25-470f5fb3b6cb";
         public const string Name = "Template Creator";
-        public const string Description = @"Makes it easy to create templates for 'dotnet new'";
+        public const string Description = @"Makes it easy to create custom project templates for 'dotnet new'";
         public const string Language = "en-US";
         public const string Version = "0.5";
         public const string Author = "Mads Kristensen";
