@@ -22,7 +22,6 @@ namespace TemplateCreator
     /// </summary>
     internal sealed partial class PackageIds
     {
-        public const int FolderGroup = 0x0001;
         public const int MenuGroup = 0x0002;
         public const int Menu = 0x0100;
         public const int AddTemplate = 0x1000;
