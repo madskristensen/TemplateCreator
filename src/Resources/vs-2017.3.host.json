@@ -7,7 +7,7 @@
   },
   "order": 1000,
   "icon": "template-icon.png",
-  "learnMoreLink": "url",
+  "learnMoreLink": "https://example.com/mytemplate",
   "uiFilters": [ "oneaspnet" ],
   "supportsDocker": true
 }
