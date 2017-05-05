@@ -7,9 +7,11 @@ or get the [CI build](http://vsixgallery.com/extension/49719076-63de-4191-8f25-4
 
 ---------------------------------------
 
-Makes it easy to create templates for 'dotnet new'
+Makes it easy to create project templates for 'dotnet new' and Visual Studio.
 
 See the [change log](CHANGELOG.md) for changes and road map.
+
+Read more about the [new template format here](https://blogs.msdn.microsoft.com/dotnet/2017/04/02/how-to-create-your-own-templates-for-dotnet-new/) and how to create and customize your templates. This extension makes it easy to get started, but you need to understand how the underlying templating system works to take full advantage of it.
 
 ## Features
 
