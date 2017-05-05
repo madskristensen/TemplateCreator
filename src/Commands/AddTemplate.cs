@@ -1,10 +1,8 @@
 ﻿using System;
 using System.ComponentModel.Design;
-using System.Globalization;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 using System.IO;
 using EnvDTE;
+using Microsoft.VisualStudio.Shell;
 
 namespace TemplateCreator
 {
@@ -49,7 +47,7 @@ namespace TemplateCreator
             if (string.IsNullOrEmpty(root))
                 return;
 
-            var templateFile = Path.Combine(root, Constants.Folder, Constants.TemplateFileName);
+            string templateFile = Path.Combine(root, Constants.Folder, Constants.TemplateFileName);
 
             button.Enabled = button.Visible = !File.Exists(templateFile);
         }
@@ -66,13 +64,13 @@ namespace TemplateCreator
 
             string root = _project.GetRootFolder();
 
-            var templateFile = Path.Combine(root, Constants.Folder, Constants.TemplateFileName);
+            string templateFile = Path.Combine(root, Constants.Folder, Constants.TemplateFileName);
             string folder = Path.GetDirectoryName(templateFile);
 
             Directory.CreateDirectory(folder);
             File.WriteAllText(templateFile, json);
 
-            VsHelpers.DTE.ItemOperations.OpenFile(templateFile);
+            VsHelpers.OpenFileAndRefresh(templateFile);            
         }
     }
 }

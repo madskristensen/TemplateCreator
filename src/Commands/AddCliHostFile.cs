@@ -69,7 +69,7 @@ namespace TemplateCreator
 
                 if (openInEditor)
                 {
-                    VsHelpers.DTE.ItemOperations.OpenFile(dest);
+                    VsHelpers.OpenFileAndRefresh(dest);
                 }
             }
         }

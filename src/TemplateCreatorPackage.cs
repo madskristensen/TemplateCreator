@@ -1,9 +1,10 @@
-﻿using Microsoft.VisualStudio;
-using Microsoft.VisualStudio.Shell;
-using System;
+﻿using System;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Threading;
+using Microsoft.VisualStudio;
+using Microsoft.VisualStudio.Shell;
 using Tasks = System.Threading.Tasks;
 
 namespace TemplateCreator
@@ -20,11 +21,13 @@ namespace TemplateCreator
         {
             if (await GetServiceAsync(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
             {
-                await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-                AddTemplate.Initialize(this, commandService);
-                AddVsHostFile.Initialize(this, commandService);
-                AddCliHostFile.Initialize(this, commandService);
+                // Execute on the UI thread
+                ThreadHelper.Generic.BeginInvoke(DispatcherPriority.ContextIdle, () =>
+                {
+                    AddTemplate.Initialize(this, commandService);
+                    AddVsHostFile.Initialize(this, commandService);
+                    AddCliHostFile.Initialize(this, commandService);
+                });
             }
         }
     }

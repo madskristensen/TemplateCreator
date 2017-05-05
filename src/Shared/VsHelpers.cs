@@ -4,6 +4,10 @@ using Microsoft.VisualStudio.Shell;
 using System;
 using System.IO;
 using System.Reflection;
+using Microsoft.VisualStudio.Shell.Interop;
+using System.Runtime.InteropServices;
+using Microsoft.VisualStudio;
+using System.Windows.Threading;
 
 namespace TemplateCreator
 {
@@ -20,6 +24,27 @@ namespace TemplateCreator
         {
             string folder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             return Path.Combine(folder, relativePath);
+        }
+
+        public static void ExecuteCommand(string command)
+        {
+            Command cmd = DTE.Commands.Item(command);
+
+            if (cmd != null && cmd.IsAvailable)
+            {
+                DTE.Commands.Raise(cmd.Guid, cmd.ID, null, null);
+            }
+        }
+
+        public static void OpenFileAndRefresh(string path)
+        {
+            VsShellUtilities.OpenDocument(ServiceProvider.GlobalProvider, path);
+            ExecuteCommand("SolutionExplorer.Refresh");
+
+            ThreadHelper.Generic.BeginInvoke(DispatcherPriority.ApplicationIdle, () =>
+            {
+                ExecuteCommand("SolutionExplorer.SyncWithActiveDocument");
+            });
         }
 
         public static bool IsTemplateFolder(out ProjectItem templateFolderItem)
