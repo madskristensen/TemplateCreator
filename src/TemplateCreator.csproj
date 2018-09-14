@@ -127,7 +127,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="15.0.0-beta3" ExcludeAssets="runtime" />
+    <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="15.0.68-pre" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
       <Version>15.8.3247</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
