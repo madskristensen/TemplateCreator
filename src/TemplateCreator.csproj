@@ -127,11 +127,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="15.0.68-pre" ExcludeAssets="runtime">
+    <PackageReference Include="Madskristensen.VisualStudio.SDK" Version="15.0.74-pre" ExcludeAssets="runtime">
       <IncludeAssets>compile; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VSSDK.BuildTools">
-      <Version>15.8.3247</Version>
+      <Version>15.8.3252</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

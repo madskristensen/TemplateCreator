@@ -2,7 +2,6 @@
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Windows.Threading;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Tasks = System.Threading.Tasks;
@@ -17,17 +16,15 @@ namespace TemplateCreator
     [ProvideMenuResource("Menus.ctmenu", 1)]
     public sealed class TemplateCreatorPackage : AsyncPackage
     {
-        protected async override Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
+        protected override async Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
+            await JoinableTaskFactory.SwitchToMainThreadAsync();
+
             if (await GetServiceAsync(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
             {
-                // Execute on the UI thread
-                ThreadHelper.Generic.BeginInvoke(DispatcherPriority.ContextIdle, () =>
-                {
-                    AddTemplate.Initialize(this, commandService);
-                    AddVsHostFile.Initialize(this, commandService);
-                    AddCliHostFile.Initialize(this, commandService);
-                });
+                AddTemplate.Initialize(this, commandService);
+                AddVsHostFile.Initialize(this, commandService);
+                AddCliHostFile.Initialize(this, commandService);
             }
         }
     }
